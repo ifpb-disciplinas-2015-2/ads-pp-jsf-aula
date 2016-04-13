@@ -1,5 +1,7 @@
 package ifpb.ads.pp.jsf.aula;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -28,5 +30,16 @@ public class PessoaControlador {
         return "home.xhtml";
     }
     
+    public List<Pessoa> getLista(){
+        List<Pessoa> lista = new ArrayList<>();
+        lista.add(new Pessoa("Kiko", "12345678890"));
+        lista.add(new Pessoa("Chaves", "12345678890"));
+        return lista;
+    }
+    
+    public String test(Pessoa pessoa){
+        this.pessoa = pessoa;
+        return "home.xhtml";
+    }
     
 }
