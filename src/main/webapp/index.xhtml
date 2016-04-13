@@ -1,18 +1,33 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Exemplo - JSF</title>
-    </h:head>
-    <h:body>
-        <h:form>
-            <h:inputText value="#{pessoaControlador.pessoa.nome}"/>
-            <h:inputText value="#{pessoaControlador.pessoa.cpf}"/>
-            
-            <h:commandButton value="send" 
-                             action="#{pessoaControlador.enviar()}"/>
-        </h:form>
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="center">
+
+            <h:panelGrid columns="2" >
+                <!--<h:message for="cpf" styleClass="exemplo"/>-->
+                <h:messages layout="list" styleClass="exemplo"/>
+                <h:form>
+                    <h:outputLabel for="nome" value="Nome:" />
+                    <h:inputText id="nome" value="#{pessoaControlador.pessoa.nome}" 
+                                 validator="validador.CampoValidador"/>
+                    <h:message for="nome" styleClass="exemplo"/>
+
+                    <h:outputLabel for="cpf" value="CPF:" />
+                    <h:inputText id="cpf" value="#{pessoaControlador.pessoa.cpf}" 
+                                 converter="converter.CpfConverter"
+                                 validator="validador.CPFValidador"/>
+
+                    <h:commandButton value="send" 
+                                     action="#{pessoaControlador.enviar()}"/>
+
+                </h:form>
+            </h:panelGrid>
+        </ui:define>
+    </ui:composition>
+
 </html>
 

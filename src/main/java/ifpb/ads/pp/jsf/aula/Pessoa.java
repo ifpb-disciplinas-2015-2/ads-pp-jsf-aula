@@ -8,14 +8,14 @@ package ifpb.ads.pp.jsf.aula;
 public class Pessoa {
 
     private String nome;
-    private String cpf;
+    private CPF cpf;
 
     public Pessoa() {
     }
 
     public Pessoa(String nome, String cpf) {
         this.nome = nome;
-        this.cpf = cpf;
+        this.cpf = new CPF(cpf);
     }
 
     public String getNome() {
@@ -26,11 +26,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public CPF getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(CPF cpf) {
         this.cpf = cpf;
     }
 

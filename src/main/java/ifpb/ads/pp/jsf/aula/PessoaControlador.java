@@ -24,6 +24,7 @@ public class PessoaControlador {
     
     public String enviar(){
 
+//        return "home.xhtml?faces-redirect=true";
         return "home.xhtml";
     }
     
